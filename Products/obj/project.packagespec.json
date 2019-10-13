@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/mouse/RiderProjects/rsoi-microservices-lab2/Products/Products.csproj",
+    "projectUniqueName": "/Users/mouse/RiderProjects/microservices-lab2/Products/Products.csproj",
     "projectName": "Products",
-    "projectPath": "/Users/mouse/RiderProjects/rsoi-microservices-lab2/Products/Products.csproj",
-    "outputPath": "/Users/mouse/RiderProjects/rsoi-microservices-lab2/Products/obj/",
+    "projectPath": "/Users/mouse/RiderProjects/microservices-lab2/Products/Products.csproj",
+    "outputPath": "/Users/mouse/RiderProjects/microservices-lab2/Products/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -29,6 +29,14 @@
   "frameworks": {
     "netcoreapp2.2": {
       "dependencies": {
+        "AutoMapper": {
+          "target": "Package",
+          "version": "[9.0.0, )"
+        },
+        "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+          "target": "Package",
+          "version": "[7.0.0, )"
+        },
         "Microsoft.AspNetCore.App": {
           "suppressParent": "All",
           "target": "Package",
