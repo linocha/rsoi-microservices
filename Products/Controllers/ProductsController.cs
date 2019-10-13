@@ -25,7 +25,7 @@ namespace Products.Controllers
         public async Task<IEnumerable<ProductResource>> GetAllAsync()
         {
             var products = await _productService.ListAsync();
-            // map return data
+            // map return data 
             var resources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
             return resources;
         }
