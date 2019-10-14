@@ -13,7 +13,7 @@ namespace Products.Persistence.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Product>().ToTable("Products");
+            modelBuilder.Entity<Product>().ToTable("Products", "services");
             modelBuilder.Entity<Product>().HasKey(p => p.Id);
             modelBuilder.Entity<Product>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             modelBuilder.Entity<Product>().Property(p => p.Name).IsRequired().HasMaxLength(30);

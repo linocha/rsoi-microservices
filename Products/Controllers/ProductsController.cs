@@ -29,5 +29,14 @@ namespace Products.Controllers
             var resources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
             return resources;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> PostAsync([FromBody] SaveProductResource resource)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
+        }
     }
 }

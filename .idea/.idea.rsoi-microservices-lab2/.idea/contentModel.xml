@@ -23,6 +23,9 @@
             <e p="IProductService.cs" t="Include" />
           </e>
         </e>
+        <e p="Extensions" t="Include">
+          <e p="ModelStateExtensions.cs" t="Include" />
+        </e>
         <e p="Mapping" t="Include">
           <e p="ModelToResourceProfile.cs" t="Include" />
         </e>
@@ -49,6 +52,7 @@
         </e>
         <e p="Resources" t="Include">
           <e p="ProductResource.cs" t="Include" />
+          <e p="SaveProductResource.cs" t="Include" />
         </e>
         <e p="Services" t="Include">
           <e p="ProductService.cs" t="Include" />
