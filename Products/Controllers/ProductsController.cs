@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Products.Domain.Models;
 using Products.Domain.Services;
 using Products.Resources;
+using Products.Extensions;
 
 namespace Products.Controllers
 {
@@ -37,6 +38,9 @@ namespace Products.Controllers
             {
                 return BadRequest(ModelState.GetErrorMessages());
             }
+
+            var product = _mapper.Map<SaveProductResource, Product>(resource);
+            
         }
     }
 }
