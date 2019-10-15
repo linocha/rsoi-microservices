@@ -34,13 +34,28 @@ namespace Products.Controllers
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveProductResource resource)
         {
+            // validating the request data
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState.GetErrorMessages());
             }
 
+            //  mapping the resource to our model
             var product = _mapper.Map<SaveProductResource, Product>(resource);
             
+            // get result from model
+            var result = await _productService.SaveAsync(product);
+
+            // API returns a bad request
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            // API maps the new category (now including data such as the new Id) to our previously created ProductResource
+            var productResource = _mapper.Map<Product, ProductResource>(result.Product);
+            // sends it to the client
+            return Ok(productResource);
         }
     }
 }

@@ -18,8 +18,13 @@
           </e>
           <e p="Repositories" t="Include">
             <e p="IProductRepository.cs" t="Include" />
+            <e p="IUnitOfWork.cs" t="Include" />
           </e>
           <e p="Services" t="Include">
+            <e p="Communication" t="Include">
+              <e p="BaseResponse.cs" t="Include" />
+              <e p="SaveProductResponse.cs" t="Include" />
+            </e>
             <e p="IProductService.cs" t="Include" />
           </e>
         </e>
@@ -44,6 +49,7 @@
           <e p="Repositories" t="Include">
             <e p="BaseRepository.cs" t="Include" />
             <e p="ProductRepository.cs" t="Include" />
+            <e p="UnitOfWork.cs" t="Include" />
           </e>
         </e>
         <e p="Products.csproj" t="IncludeRecursive" />
