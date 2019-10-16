@@ -65,5 +65,17 @@ namespace Products.Services
                 return new SaveProductResponse($"An error occurred when updating the category: {ex.Message}");
             }
         }
+
+        public async Task<SaveProductResponse> GetByIdAsync(int id)
+        {
+            var existingProduct = await _productRepository.FindByIdAsync(id);
+
+            if (existingProduct == null)
+            {
+                return new SaveProductResponse("Product not found");
+            }
+            
+            return new SaveProductResponse(existingProduct);
+        }
     }
 }

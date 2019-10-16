@@ -81,5 +81,20 @@ namespace Products.Controllers
             var productResource = _mapper.Map<Product, ProductResource>(result.Product);
             return Ok(productResource);
         }
+        
+        // get by id
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var result = await _productService.GetByIdAsync(id);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            var productResource = _mapper.Map<Product, ProductResource>(result.Product);
+            return Ok(productResource);
+        }
     }
 }
