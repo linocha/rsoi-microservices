@@ -4,6 +4,7 @@ using Products.Resources;
 
 namespace Products.Mapping
 {
+    // get
     public class ModelToResourceProfile : Profile
     {
         public ModelToResourceProfile()

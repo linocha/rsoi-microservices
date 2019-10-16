@@ -22,6 +22,7 @@ namespace Products.Controllers
             _mapper = mapper;
         }
 
+        //get all
         [HttpGet]
         public async Task<IEnumerable<ProductResource>> GetAllAsync()
         {
@@ -31,6 +32,7 @@ namespace Products.Controllers
             return resources;
         }
 
+        // post
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveProductResource resource)
         {
@@ -43,7 +45,7 @@ namespace Products.Controllers
             //  mapping the resource to our model
             var product = _mapper.Map<SaveProductResource, Product>(resource);
             
-            // get result from model
+            // get result from model (return response)
             var result = await _productService.SaveAsync(product);
 
             // API returns a bad request
@@ -53,8 +55,30 @@ namespace Products.Controllers
             }
 
             // API maps the new category (now including data such as the new Id) to our previously created ProductResource
+            // get product from response
             var productResource = _mapper.Map<Product, ProductResource>(result.Product);
             // sends it to the client
+            return Ok(productResource);
+        }
+
+        // update
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id, [FromBody] SaveProductResource resource)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
+
+            var product = _mapper.Map<SaveProductResource, Product>(resource);
+            var result = await _productService.UpdateAsync(id, product);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            var productResource = _mapper.Map<Product, ProductResource>(result.Product);
             return Ok(productResource);
         }
     }

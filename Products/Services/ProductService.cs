@@ -18,6 +18,7 @@ namespace Products.Services
             _productRepository = productRepository;
             _unitOfWork = unitOfWork;
         }
+        
         public async Task<IEnumerable<Product>> ListAsync()
         {
             return await _productRepository.ListAsync();
@@ -38,6 +39,30 @@ namespace Products.Services
             {
                 //API calls some fictional logging service and return a response indicating failure
                 return new SaveProductResponse($"An error occurred when saving the product: {ex.Message}");
+            }
+        }
+
+        public async Task<SaveProductResponse> UpdateAsync(int id, Product product)
+        {
+            var existingProduct = await _productRepository.FindByIdAsync(id);
+
+            if (existingProduct == null)
+            {
+                return new SaveProductResponse("Product not found");
+            }
+
+            existingProduct.Name = product.Name;
+
+            try
+            {
+                _productRepository.Update(existingProduct);
+                await _unitOfWork.CompleteAsync();
+                
+                return new SaveProductResponse(existingProduct);
+            }
+            catch (Exception ex)
+            {
+                return new SaveProductResponse($"An error occurred when updating the category: {ex.Message}");
             }
         }
     }
