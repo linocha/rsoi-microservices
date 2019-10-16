@@ -52,11 +52,19 @@
           "target": "Package",
           "version": "[3.1.0-preview1.19506.2, )"
         },
+        "Microsoft.EntityFrameworkCore.Tools": {
+          "target": "Package",
+          "version": "[2.2.0, )"
+        },
         "Microsoft.NETCore.App": {
           "suppressParent": "All",
           "target": "Package",
           "version": "[2.2.0, )",
           "autoReferenced": true
+        },
+        "Npgsql.EntityFrameworkCore.PostgreSQL": {
+          "target": "Package",
+          "version": "[2.2.0, )"
         }
       },
       "imports": [

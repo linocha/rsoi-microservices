@@ -36,10 +36,9 @@ namespace Products
         {
 //            services.AddControllers();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
-            
-            services.AddDbContext<AppDbContext>(options => {
-                options.UseInMemoryDatabase("subscribes-api-in-memory");
-            });
+
+            services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(opt =>
+                opt.UseNpgsql(Configuration.GetConnectionString("AppDbContext")));
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
