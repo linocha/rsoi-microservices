@@ -22,7 +22,7 @@ namespace Users.Persistence.Contexts
 
             modelBuilder.Entity<User>().HasData(
                 new User {Id = 100, Email = "lalala@llalala.com"},
-                new User {Id = 100, Email = "mamamama@mamamama.com"}
+                new User {Id = 101, Email = "mamamama@mamamama.com"}
             );
         }
     }
