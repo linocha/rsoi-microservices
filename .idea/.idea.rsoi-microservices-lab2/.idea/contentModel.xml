@@ -103,6 +103,7 @@
         <e p="Mapping" t="Include">
           <e p="ModelToResourceProfile.cs" t="Include" />
           <e p="ResourceToModelProfile.cs" t="Include" />
+          <e p="ResourceToModelUpdate.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
           <e p="20191027155723_InitialCreate.cs" t="Include" />
@@ -132,6 +133,7 @@
         </e>
         <e p="Resources" t="Include">
           <e p="SaveUserResource.cs" t="Include" />
+          <e p="UpdateUserResource.cs" t="Include" />
           <e p="UserResource.cs" t="Include" />
         </e>
         <e p="Services" t="Include">
