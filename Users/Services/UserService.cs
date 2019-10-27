@@ -51,9 +51,9 @@ namespace Users.Services
                 return new UserResponse("User not found");
             }
 
-            existingUser.Email = user.Email;
-            existingUser.FirstName = user.FirstName;
-            existingUser.LastName = user.LastName;
+            if(user.Email != null) existingUser.Email = user.Email;
+            if(user.FirstName != null) existingUser.FirstName = user.FirstName;
+            if(user.LastName != null) existingUser.LastName = user.LastName;
 
             try
             {

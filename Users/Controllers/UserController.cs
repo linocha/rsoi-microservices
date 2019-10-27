@@ -63,14 +63,14 @@ namespace Users.Controllers
 
         // update
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id, [FromBody] SaveUserResource resource)
+        public async Task<IActionResult> PutAsync(int id, [FromBody] UpdateUserResource resource)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState.GetErrorMessages());
             }
 
-            var user = _mapper.Map<SaveUserResource, User>(resource);
+            var user = _mapper.Map<UpdateUserResource, User>(resource);
             var result = await _userService.UpdateAsync(id, user);
 
             if (!result.Success)
