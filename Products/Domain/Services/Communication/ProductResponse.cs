@@ -2,11 +2,11 @@ using Products.Domain.Models;
 
 namespace Products.Domain.Services.Communication
 {
-    public class SaveProductResponse : BaseResponse
+    public class ProductResponse : BaseResponse
     {
         public Product Product { get; private set; }
 
-        private SaveProductResponse(bool success, string message, Product product) : base(success, message)
+        private ProductResponse(bool success, string message, Product product) : base(success, message)
         {
             Product = product;
         }
@@ -16,7 +16,7 @@ namespace Products.Domain.Services.Communication
         /// </summary>
         /// <param name="product">Saved product.</param>
         /// <returns>Response.</returns>
-        public SaveProductResponse(Product product) : this(true, string.Empty, product)
+        public ProductResponse(Product product) : this(true, string.Empty, product)
         {
             
         }
@@ -26,7 +26,7 @@ namespace Products.Domain.Services.Communication
         /// </summary>
         /// <param name="message">Error message.</param>
         /// <returns>Response.</returns>
-        public SaveProductResponse(string message) : this(false, message, null)
+        public ProductResponse(string message) : this(false, message, null)
         {
             
         }

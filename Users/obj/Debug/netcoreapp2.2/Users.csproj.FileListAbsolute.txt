@@ -1,0 +1,14 @@
+/Users/mouse/RiderProjects/microservices-lab2/Users/bin/Debug/netcoreapp2.2/Users.deps.json
+/Users/mouse/RiderProjects/microservices-lab2/Users/bin/Debug/netcoreapp2.2/Users.runtimeconfig.json
+/Users/mouse/RiderProjects/microservices-lab2/Users/bin/Debug/netcoreapp2.2/Users.runtimeconfig.dev.json
+/Users/mouse/RiderProjects/microservices-lab2/Users/bin/Debug/netcoreapp2.2/Users.dll
+/Users/mouse/RiderProjects/microservices-lab2/Users/bin/Debug/netcoreapp2.2/Users.pdb
+/Users/mouse/RiderProjects/microservices-lab2/Users/obj/Debug/netcoreapp2.2/Users.csprojAssemblyReference.cache
+/Users/mouse/RiderProjects/microservices-lab2/Users/obj/Debug/netcoreapp2.2/Users.csproj.CoreCompileInputs.cache
+/Users/mouse/RiderProjects/microservices-lab2/Users/obj/Debug/netcoreapp2.2/Users.RazorAssemblyInfo.cache
+/Users/mouse/RiderProjects/microservices-lab2/Users/obj/Debug/netcoreapp2.2/Users.RazorAssemblyInfo.cs
+/Users/mouse/RiderProjects/microservices-lab2/Users/obj/Debug/netcoreapp2.2/Users.AssemblyInfoInputs.cache
+/Users/mouse/RiderProjects/microservices-lab2/Users/obj/Debug/netcoreapp2.2/Users.AssemblyInfo.cs
+/Users/mouse/RiderProjects/microservices-lab2/Users/obj/Debug/netcoreapp2.2/Users.RazorTargetAssemblyInfo.cache
+/Users/mouse/RiderProjects/microservices-lab2/Users/obj/Debug/netcoreapp2.2/Users.dll
+/Users/mouse/RiderProjects/microservices-lab2/Users/obj/Debug/netcoreapp2.2/Users.pdb

@@ -9,10 +9,7 @@ namespace Products.Persistence.Repositories
 {
     public class ProductRepository : BaseRepository, IProductRepository
     {
-        public ProductRepository(AppDbContext context) : base(context)
-        {
-            
-        }
+        public ProductRepository(AppDbContext context) : base(context) { }
 
         public async Task<IEnumerable<Product>> ListAsync()
         {
@@ -32,6 +29,11 @@ namespace Products.Persistence.Repositories
         public void Update(Product product)
         {
             _context.Products.Update(product);
+        }
+
+        public void Remove(Product product)
+        {
+            _context.Products.Remove(product);
         }
     }
 }

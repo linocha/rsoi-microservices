@@ -24,7 +24,7 @@ namespace Products.Services
             return await _productRepository.ListAsync();
         }
 
-        public async Task<SaveProductResponse> SaveAsync(Product product)
+        public async Task<ProductResponse> SaveAsync(Product product)
         {
             try
             {
@@ -33,49 +33,72 @@ namespace Products.Services
                 //API try to save it
                 await _unitOfWork.CompleteAsync();
                 
-                return new SaveProductResponse(product);
+                return new ProductResponse(product);
             }
             catch (Exception ex)
             {
                 //API calls some fictional logging service and return a response indicating failure
-                return new SaveProductResponse($"An error occurred when saving the product: {ex.Message}");
+                return new ProductResponse($"An error occurred when saving the product: {ex.Message}");
             }
         }
 
-        public async Task<SaveProductResponse> UpdateAsync(int id, Product product)
+        public async Task<ProductResponse> UpdateAsync(int id, Product product)
         {
             var existingProduct = await _productRepository.FindByIdAsync(id);
 
             if (existingProduct == null)
             {
-                return new SaveProductResponse("Product not found");
+                return new ProductResponse("Product not found");
             }
 
             existingProduct.Name = product.Name;
+            existingProduct.Cost = product.Cost;
 
             try
             {
                 _productRepository.Update(existingProduct);
                 await _unitOfWork.CompleteAsync();
                 
-                return new SaveProductResponse(existingProduct);
+                return new ProductResponse(existingProduct);
             }
             catch (Exception ex)
             {
-                return new SaveProductResponse($"An error occurred when updating the category: {ex.Message}");
+                return new ProductResponse($"An error occurred when updating the category: {ex.Message}");
             }
         }
 
-        public async Task<SaveProductResponse> GetByIdAsync(int id)
+        public async Task<ProductResponse> GetByIdAsync(int id)
         {
             var existingProduct = await _productRepository.FindByIdAsync(id);
 
             if (existingProduct == null)
             {
-                return new SaveProductResponse("Product not found");
+                return new ProductResponse("Product not found");
             }
             
-            return new SaveProductResponse(existingProduct);
+            return new ProductResponse(existingProduct);
+        }
+
+        public async Task<ProductResponse> DeleteAsync(int id)
+        {
+            var existingProduct = await _productRepository.FindByIdAsync(id);
+
+            if (existingProduct == null)
+            {
+                return new ProductResponse("Product not found");
+            }
+
+            try
+            {
+                _productRepository.Remove(existingProduct);
+                await _unitOfWork.CompleteAsync();
+                
+                return new ProductResponse(existingProduct);
+            }
+            catch (Exception ex)
+            {
+                return new ProductResponse($"An error occurred when deleting the category: {ex.Message}");
+            }
         }
     }
 }

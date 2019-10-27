@@ -96,5 +96,21 @@ namespace Products.Controllers
             var productResource = _mapper.Map<Product, ProductResource>(result.Product);
             return Ok(productResource);
         }
+        
+        //delete by id
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await _productService.DeleteAsync(id);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            var productResource = _mapper.Map<Product, ProductResource>(result.Product);
+
+            return Ok(productResource);
+        }
     }
 }
