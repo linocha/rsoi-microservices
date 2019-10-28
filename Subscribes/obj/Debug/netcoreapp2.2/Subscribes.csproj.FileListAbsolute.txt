@@ -1,0 +1,14 @@
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/bin/Debug/netcoreapp2.2/Subscribes.deps.json
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/bin/Debug/netcoreapp2.2/Subscribes.runtimeconfig.json
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/bin/Debug/netcoreapp2.2/Subscribes.runtimeconfig.dev.json
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/bin/Debug/netcoreapp2.2/Subscribes.dll
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/bin/Debug/netcoreapp2.2/Subscribes.pdb
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/Debug/netcoreapp2.2/Subscribes.csprojAssemblyReference.cache
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/Debug/netcoreapp2.2/Subscribes.csproj.CoreCompileInputs.cache
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/Debug/netcoreapp2.2/Subscribes.RazorAssemblyInfo.cache
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/Debug/netcoreapp2.2/Subscribes.RazorAssemblyInfo.cs
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/Debug/netcoreapp2.2/Subscribes.AssemblyInfoInputs.cache
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/Debug/netcoreapp2.2/Subscribes.AssemblyInfo.cs
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/Debug/netcoreapp2.2/Subscribes.RazorTargetAssemblyInfo.cache
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/Debug/netcoreapp2.2/Subscribes.dll
+/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/Debug/netcoreapp2.2/Subscribes.pdb
