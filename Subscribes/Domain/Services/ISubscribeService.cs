@@ -13,5 +13,7 @@ namespace Subscribes.Domain.Services
         Task<SubscribeResponse> GetByIdAsync(int id);
 
         Task<SubscribeResponse> DeleteAsync(int id);
+
+        Task<SubscribeResponse> UpdateAsync(int id);
     }
 }

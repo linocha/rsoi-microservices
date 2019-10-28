@@ -73,7 +73,31 @@ namespace Subscribes.Services
             }
             catch (Exception ex)
             {
-                return new SubscribeResponse($"An error occurred when deleting the category: {ex.Message}");
+                return new SubscribeResponse($"An error occurred when deleting the subscribe: {ex.Message}");
+            }
+        }
+
+        public async Task<SubscribeResponse> UpdateAsync(int id)
+        {
+            var existingSubscribe = await _subscribeRepository.FindByIdAsync(id);
+            
+            if (existingSubscribe == null)
+            {
+                return new SubscribeResponse("Subscribe not found");
+            }
+
+            existingSubscribe.DataEnd = existingSubscribe.DataEnd.AddYears(1);
+            
+            try
+            {
+                _subscribeRepository.Update(existingSubscribe);
+                await _unitOfWork.CompleteAsync();
+                
+                return new SubscribeResponse(existingSubscribe);
+            }
+            catch (Exception ex)
+            {
+                return new SubscribeResponse($"An error occurred when updating the subscribe: {ex.Message}");
             }
         }
     }

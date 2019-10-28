@@ -96,5 +96,19 @@ namespace Subscribes.Controllers
 
             return Ok(subscribeResource);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id)
+        {
+            var result = await _subscribeService.UpdateAsync(id);
+            
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            var productResource = _mapper.Map<Subscribe, SubscribeResource>(result.Subscribe);
+            return Ok(productResource);
+        }
     }
 }
