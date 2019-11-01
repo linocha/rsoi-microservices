@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/mouse/RiderProjects/microservices-lab2/Users/Users.csproj",
+    "projectUniqueName": "/Users/mouse/RiderProjects/rsoi-microservices/Users/Users.csproj",
     "projectName": "Users",
-    "projectPath": "/Users/mouse/RiderProjects/microservices-lab2/Users/Users.csproj",
-    "outputPath": "/Users/mouse/RiderProjects/microservices-lab2/Users/obj/",
+    "projectPath": "/Users/mouse/RiderProjects/rsoi-microservices/Users/Users.csproj",
+    "outputPath": "/Users/mouse/RiderProjects/rsoi-microservices/Users/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
