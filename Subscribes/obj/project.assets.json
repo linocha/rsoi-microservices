@@ -12226,17 +12226,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mouse/RiderProjects/microservices-lab2/Subscribes/Subscribes.csproj",
+      "projectUniqueName": "/Users/mouse/RiderProjects/rsoi-microservices/Subscribes/Subscribes.csproj",
       "projectName": "Subscribes",
-      "projectPath": "/Users/mouse/RiderProjects/microservices-lab2/Subscribes/Subscribes.csproj",
+      "projectPath": "/Users/mouse/RiderProjects/rsoi-microservices/Subscribes/Subscribes.csproj",
       "packagesPath": "/Users/mouse/.nuget/packages/",
-      "outputPath": "/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/",
+      "outputPath": "/Users/mouse/RiderProjects/rsoi-microservices/Subscribes/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/mouse/.nuget/NuGet/NuGet.Config"
+        "/Users/mouse/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"

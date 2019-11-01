@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/mouse/RiderProjects/microservices-lab2/Subscribes/Subscribes.csproj",
+    "projectUniqueName": "/Users/mouse/RiderProjects/rsoi-microservices/Subscribes/Subscribes.csproj",
     "projectName": "Subscribes",
-    "projectPath": "/Users/mouse/RiderProjects/microservices-lab2/Subscribes/Subscribes.csproj",
-    "outputPath": "/Users/mouse/RiderProjects/microservices-lab2/Subscribes/obj/",
+    "projectPath": "/Users/mouse/RiderProjects/rsoi-microservices/Subscribes/Subscribes.csproj",
+    "outputPath": "/Users/mouse/RiderProjects/rsoi-microservices/Subscribes/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
