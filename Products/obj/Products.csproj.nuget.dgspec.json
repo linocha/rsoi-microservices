@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mouse/RiderProjects/microservices-lab2/Products/Products.csproj": {}
+    "/Users/mouse/RiderProjects/rsoi-microservices/Products/Products.csproj": {}
   },
   "projects": {
-    "/Users/mouse/RiderProjects/microservices-lab2/Products/Products.csproj": {
+    "/Users/mouse/RiderProjects/rsoi-microservices/Products/Products.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mouse/RiderProjects/microservices-lab2/Products/Products.csproj",
+        "projectUniqueName": "/Users/mouse/RiderProjects/rsoi-microservices/Products/Products.csproj",
         "projectName": "Products",
-        "projectPath": "/Users/mouse/RiderProjects/microservices-lab2/Products/Products.csproj",
+        "projectPath": "/Users/mouse/RiderProjects/rsoi-microservices/Products/Products.csproj",
         "packagesPath": "/Users/mouse/.nuget/packages/",
-        "outputPath": "/Users/mouse/RiderProjects/microservices-lab2/Products/obj/",
+        "outputPath": "/Users/mouse/RiderProjects/rsoi-microservices/Products/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/mouse/.nuget/NuGet/NuGet.Config"
+          "/Users/mouse/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"

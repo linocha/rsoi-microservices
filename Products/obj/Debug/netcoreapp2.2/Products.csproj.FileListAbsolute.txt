@@ -26,3 +26,17 @@
 /Users/mouse/RiderProjects/microservices-lab2/Products/obj/Debug/netcoreapp2.2/Products.RazorTargetAssemblyInfo.cache
 /Users/mouse/RiderProjects/microservices-lab2/Products/obj/Debug/netcoreapp2.2/Products.dll
 /Users/mouse/RiderProjects/microservices-lab2/Products/obj/Debug/netcoreapp2.2/Products.pdb
+/Users/mouse/RiderProjects/rsoi-microservices/Products/bin/Debug/netcoreapp2.2/Products.deps.json
+/Users/mouse/RiderProjects/rsoi-microservices/Products/bin/Debug/netcoreapp2.2/Products.runtimeconfig.json
+/Users/mouse/RiderProjects/rsoi-microservices/Products/bin/Debug/netcoreapp2.2/Products.runtimeconfig.dev.json
+/Users/mouse/RiderProjects/rsoi-microservices/Products/bin/Debug/netcoreapp2.2/Products.dll
+/Users/mouse/RiderProjects/rsoi-microservices/Products/bin/Debug/netcoreapp2.2/Products.pdb
+/Users/mouse/RiderProjects/rsoi-microservices/Products/obj/Debug/netcoreapp2.2/Products.csprojAssemblyReference.cache
+/Users/mouse/RiderProjects/rsoi-microservices/Products/obj/Debug/netcoreapp2.2/Products.csproj.CoreCompileInputs.cache
+/Users/mouse/RiderProjects/rsoi-microservices/Products/obj/Debug/netcoreapp2.2/Products.RazorAssemblyInfo.cache
+/Users/mouse/RiderProjects/rsoi-microservices/Products/obj/Debug/netcoreapp2.2/Products.RazorAssemblyInfo.cs
+/Users/mouse/RiderProjects/rsoi-microservices/Products/obj/Debug/netcoreapp2.2/Products.AssemblyInfoInputs.cache
+/Users/mouse/RiderProjects/rsoi-microservices/Products/obj/Debug/netcoreapp2.2/Products.AssemblyInfo.cs
+/Users/mouse/RiderProjects/rsoi-microservices/Products/obj/Debug/netcoreapp2.2/Products.RazorTargetAssemblyInfo.cache
+/Users/mouse/RiderProjects/rsoi-microservices/Products/obj/Debug/netcoreapp2.2/Products.dll
+/Users/mouse/RiderProjects/rsoi-microservices/Products/obj/Debug/netcoreapp2.2/Products.pdb
