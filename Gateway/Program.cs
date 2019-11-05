@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+
+using Ocelot.Middleware;
+using Ocelot.DependencyInjection;
 
 namespace Gateway
 {
@@ -14,11 +19,31 @@ namespace Gateway
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            BuildWebHost(args).Run();
+            
         }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        
+        public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.AddJsonFile("ocelot.json")
+                        .AddEnvironmentVariables();
+                })
+                .ConfigureServices(s =>
+                {
+                    s.AddOcelot();
+                })
+                .Configure(app =>
+                {
+                    app.UseOcelot().Wait();
+                })
+                .ConfigureLogging((hostingContext, logging) =>
+                {
+                    //add your logging
+                })
+                .UseIISIntegration()
+                .Build();
     }
 }

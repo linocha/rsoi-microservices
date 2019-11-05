@@ -1,0 +1,14 @@
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/bin/Debug/netcoreapp2.2/Gateway.deps.json
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/bin/Debug/netcoreapp2.2/Gateway.runtimeconfig.json
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/bin/Debug/netcoreapp2.2/Gateway.runtimeconfig.dev.json
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/bin/Debug/netcoreapp2.2/Gateway.dll
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/bin/Debug/netcoreapp2.2/Gateway.pdb
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/obj/Debug/netcoreapp2.2/Gateway.csprojAssemblyReference.cache
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/obj/Debug/netcoreapp2.2/Gateway.csproj.CoreCompileInputs.cache
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/obj/Debug/netcoreapp2.2/Gateway.RazorAssemblyInfo.cache
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/obj/Debug/netcoreapp2.2/Gateway.RazorAssemblyInfo.cs
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/obj/Debug/netcoreapp2.2/Gateway.AssemblyInfoInputs.cache
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/obj/Debug/netcoreapp2.2/Gateway.AssemblyInfo.cs
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/obj/Debug/netcoreapp2.2/Gateway.RazorTargetAssemblyInfo.cache
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/obj/Debug/netcoreapp2.2/Gateway.dll
+/Users/mouse/RiderProjects/rsoi-microservices/Gateway/obj/Debug/netcoreapp2.2/Gateway.pdb
