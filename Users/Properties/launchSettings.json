@@ -20,8 +20,8 @@
     "Users": {
       "commandName": "Project",
       "launchBrowser": false,
-      "launchUrl": "users",
-      "applicationUrl": "https://localhost:5001",
+      "launchUrl": "api/users",
+      "applicationUrl": "http://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
