@@ -20,8 +20,8 @@
     "Subscribes": {
       "commandName": "Project",
       "launchBrowser": false,
-      "launchUrl": "subscribes",
-      "applicationUrl": "https://localhost:5002",
+      "launchUrl": "api/subscribes",
+      "applicationUrl": "http://localhost:5002",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
