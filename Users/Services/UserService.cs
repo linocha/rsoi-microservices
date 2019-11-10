@@ -44,12 +44,21 @@ namespace Users.Services
 
         public async Task<UserResponse> UpdateAsync(int id, User user)
         {
-            var existingUser = await _userRepository.FindByIdAsync(id);
+            var userResponse = await GetByIdAsync(id);
 
-            if (existingUser == null)
+            if (!userResponse.Success)
             {
-                return new UserResponse("User not found");
+                return userResponse;
             }
+
+            var existingUser = userResponse.User;
+            
+//            var existingUser = await _userRepository.FindByIdAsync(id);
+//
+//            if (existingUser == null)
+//            {
+//                return new UserResponse("User not found");
+//            }
 
             if(user.Email != null) existingUser.Email = user.Email;
             if(user.FirstName != null) existingUser.FirstName = user.FirstName;
@@ -82,12 +91,21 @@ namespace Users.Services
 
         public async Task<UserResponse> DeleteAsync(int id)
         {
-            var existingUser = await _userRepository.FindByIdAsync(id);
+            var userResponse = await GetByIdAsync(id);
 
-            if (existingUser == null)
+            if (!userResponse.Success)
             {
-                return new UserResponse("User not found");
+                return userResponse;
             }
+
+            var existingUser = userResponse.User;
+            
+//            var existingUser = await _userRepository.FindByIdAsync(id);
+//
+//            if (existingUser == null)
+//            {
+//                return new UserResponse("User not found");
+//            }
 
             try
             {
