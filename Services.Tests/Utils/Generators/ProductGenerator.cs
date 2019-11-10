@@ -51,16 +51,7 @@ namespace Services.Tests.Utils.Generators
                 Cost = 10000
             });
         }
-
-        public static ProductResource GetTestProductResource()
-        {
-            return new ProductResource()
-            {
-                Id = 1000,
-                Name = "Prod",
-                Cost = 1000
-            };
-        }
+        
 
         public static SaveProductResource GetTestSaveProductResource()
         {

@@ -25,10 +25,10 @@ namespace Services.Tests.WebServices.Products.Controllers
     {
 //        private readonly IProductService _productService;
         private readonly IMapper _mapper;
-        
+
         public ProductsControllerTest()
         {
-            var config = new MapperConfiguration(cfg => cfg.AddProfile(new ModelToResourceProfile()));
+            var config = new MapperConfiguration(cfg => cfg.AddProfile(new ProductDtoMappingProfile()));
             _mapper = config.CreateMapper();
         }
 
@@ -96,7 +96,6 @@ namespace Services.Tests.WebServices.Products.Controllers
         public async Task PostAsyncOkTest()
         {
             //Arrange
-            var service = new Mock<IProductService>();
             var saveProductResource = ProductGenerator.GetTestSaveProductResource();
 
             var product = ProductGenerator.GetTestProduct();
@@ -104,6 +103,8 @@ namespace Services.Tests.WebServices.Products.Controllers
             product.Cost = saveProductResource.Cost;
 
             var productResponse = new ProductResponse(product);
+            
+            var service = new Mock<IProductService>();
             service.Setup(e => e.SaveAsync(It.IsAny<Product>())).ReturnsAsync(productResponse);
             
             var controller = new ProductsController(service.Object, _mapper);
