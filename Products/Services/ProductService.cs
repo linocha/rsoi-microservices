@@ -44,13 +44,14 @@ namespace Products.Services
 
         public async Task<ProductResponse> UpdateAsync(int id, Product product)
         {
-            var pResp = await GetByIdAsync(id);
-            if (!pResp.Success)
+            var productResponse = await GetByIdAsync(id);
+            if (!productResponse.Success)
             {
-                return new ProductResponse("Product not found");
+//                return new ProductResponse("Product not found");
+                return productResponse;
             }
 
-            var existingProduct = pResp.Product;
+            var existingProduct = productResponse.Product;
             
 //            var existingProduct = await _productRepository.FindByIdAsync(id);
 //
@@ -89,12 +90,21 @@ namespace Products.Services
 
         public async Task<ProductResponse> DeleteAsync(int id)
         {
-            var existingProduct = await _productRepository.FindByIdAsync(id);
-
-            if (existingProduct == null)
+            
+            var productResponse = await GetByIdAsync(id);
+            if (!productResponse.Success)
             {
-                return new ProductResponse("Product not found");
+//                return new ProductResponse("Product not found");
+                return productResponse;
             }
+
+            var existingProduct = productResponse.Product;
+//            var existingProduct = await _productRepository.FindByIdAsync(id);
+//
+//            if (existingProduct == null)
+//            {
+//                return new ProductResponse("Product not found");
+//            }
 
             try
             {
