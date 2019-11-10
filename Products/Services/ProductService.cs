@@ -44,12 +44,20 @@ namespace Products.Services
 
         public async Task<ProductResponse> UpdateAsync(int id, Product product)
         {
-            var existingProduct = await _productRepository.FindByIdAsync(id);
-
-            if (existingProduct == null)
+            var pResp = await GetByIdAsync(id);
+            if (!pResp.Success)
             {
                 return new ProductResponse("Product not found");
             }
+
+            var existingProduct = pResp.Product;
+            
+//            var existingProduct = await _productRepository.FindByIdAsync(id);
+//
+//            if (existingProduct == null)
+//            {
+//                return new ProductResponse("Product not found");
+//            }
 
             existingProduct.Name = product.Name;
             existingProduct.Cost = product.Cost;
