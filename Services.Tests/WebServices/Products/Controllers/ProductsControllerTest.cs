@@ -2,10 +2,11 @@ using AutoMapper;
 using Moq;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 using Products.Controllers;
@@ -118,7 +119,107 @@ namespace Services.Tests.WebServices.Products.Controllers
             
             ProductAssertHelper.AssertEquals(saveProductResource, productResource);
         }
+
+
+        [Fact]
+        public async Task PostAsyncBadRequestTest()
+        {
+            // Arrange
+            var controller = new ProductsController(Mock.Of<IProductService>(), _mapper);
+            controller.ModelState.AddModelError("error", "some error");
+            
+            // Act
+            var result = await controller.PostAsync(ProductGenerator.GetTestSaveProductResource());
+            
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
         
+        [Fact]
+        public async Task PutAsyncOkTest()
+        {
+            //Arrange
+            var saveProductResource = ProductGenerator.GetTestSaveProductResource();
+            
+            var product = ProductGenerator.GetTestProduct();
+            product.Name = saveProductResource.Name;
+            product.Cost = saveProductResource.Cost;
+            
+            var productResponse = new ProductResponse(product);
+            
+            var service = new Mock<IProductService>();
+            service.Setup(e => e.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(productResponse);
+            service.Setup(e => e.UpdateAsync(It.IsAny<int>(), It.IsAny<Product>())).ReturnsAsync(productResponse);
+            
+            var controller = new ProductsController(service.Object, _mapper);
+
+            //Act
+            var result = await controller.PutAsync(1, saveProductResource);
+            
+            //Assert
+            var actionResult = Assert.IsType<OkObjectResult>(result);
+            var productResource = Assert.IsAssignableFrom<ProductResource>(actionResult.Value);
+            
+            ProductAssertHelper.AssertEquals(saveProductResource, productResource);
+        }
+
+        
+        [Fact]
+        public async Task PutAsyncBadRequestTest()
+        {
+            // Arrange
+            var controller = new ProductsController(Mock.Of<IProductService>(), _mapper);
+            controller.ModelState.AddModelError("error", "some error");
+            
+            // Act
+            var result = await controller.PutAsync(1, ProductGenerator.GetTestSaveProductResource());
+            
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        
+        [Fact]
+        public async Task DeleteAsyncOkTest()
+        {
+            var product = ProductGenerator.GetTestProduct();
+            var productResponse = new ProductResponse(product);
+            
+            var service = new Mock<IProductService>();
+            service.Setup(e => e.DeleteAsync(It.IsAny<int>())).ReturnsAsync(productResponse);
+            
+            var controller = new ProductsController(service.Object, _mapper);
+            
+            // Act
+            var result = await controller.DeleteAsync(1);
+            
+            //Assert
+            var actionResult = Assert.IsType<OkObjectResult>(result);
+            var productResource = Assert.IsAssignableFrom<ProductResource>(actionResult.Value);
+            
+            ProductAssertHelper.AssertEquals(productResponse, productResource);
+        }
+
+        
+        [Fact]
+        public async Task DeleteAsyncNotFoundTest()
+        {
+            // Arrange
+            var productResponse = new ProductResponse("error");
+            
+            var service = new Mock<IProductService>();
+            service.Setup(e => e.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(productResponse);
+            service.Setup(e => e.DeleteAsync(It.IsAny<int>())).ReturnsAsync(productResponse);
+            
+            var controller = new ProductsController(service.Object, _mapper);
+            
+            // Act
+            var result = await controller.DeleteAsync(1);
+            
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
 
     }
 }
