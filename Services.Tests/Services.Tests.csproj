@@ -15,11 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="WebServices\Subscribes" />
-      <Folder Include="WebServices\Users" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Gateway\Gateway.csproj" />
       <ProjectReference Include="..\Products\Products.csproj" />
       <ProjectReference Include="..\Subscribes\Subscribes.csproj" />

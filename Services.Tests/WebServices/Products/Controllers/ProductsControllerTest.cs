@@ -4,19 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.IdentityModel.Xml;
-using Ocelot.Responses;
+using Microsoft.AspNetCore.Mvc;
+
 using Xunit;
 
 using Products.Controllers;
-using Products.Services;
-using Products.Domain;
 using Products.Domain.Models;
-using Products.Domain.Repositories;
 using Products.Domain.Services;
+using Products.Domain.Services.Communication;
 using Products.Mapping;
-using Products.Persistence.Repositories;
 using Products.Resources;
+
+using Services.Tests.Utils.AssertHelpers;
+using Services.Tests.Utils.Generators;
 
 
 namespace Services.Tests.WebServices.Products.Controllers
@@ -32,13 +32,15 @@ namespace Services.Tests.WebServices.Products.Controllers
             _mapper = config.CreateMapper();
         }
 
+        
         [Fact]
         public async Task GetAllAsyncTest()
         {
-            // Arrange
+            //Arrange
             var service = new Mock<IProductService>();
-            var products = GetTestProducts();
+            var products = ProductGenerator.GetTestProducts();
             service.Setup(e => e.ListAsync()).ReturnsAsync(products);
+            
             var controller = new ProductsController(service.Object, _mapper);
 
             //Act
@@ -46,34 +48,76 @@ namespace Services.Tests.WebServices.Products.Controllers
             
             //Assert
             var actionResult = Assert.IsType<List<ProductResource>>(result);
-            var models = Assert.IsAssignableFrom<List<ProductResource>>(result);
-            Assert.Equal(3, models.Count());
+            var productResources = Assert.IsAssignableFrom<List<ProductResource>>(actionResult);
+            AssertHelperBase.AssertEqualLists(products, actionResult, ProductAssertHelper.AssertEquals);
+            Assert.Equal(3, productResources.Count());
         }
 
-        private List<Product> GetTestProducts()
+        
+        [Fact]
+        public async Task GetByIdOkTest()
         {
-            return new List<Product>
-            {
-                new Product()
-                {
-                    Id = 1000,
-                    Name = "FProd",
-                    Cost = 10000
-                },
-                new Product()
-                {
-                    Id = 1001,
-                    Name = "SProd",
-                    Cost = 20000
-                },
-                new Product()
-                {
-                    Id = 1002,
-                    Name = "TProd",
-                    Cost = 30000
-                }
-            };
+            //Arrange
+            var service = new Mock<IProductService>();
+            var productResponse = ProductGenerator.GetTestProductResponse();
+            service.Setup(e => e.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(productResponse);
+            
+            var controller = new ProductsController(service.Object, _mapper);
+            
+            //Act
+            var result = await controller.GetById(productResponse.Product.Id);
+            
+            //Assert
+            var actionResult = Assert.IsType<OkObjectResult>(result);
+            var productResource = Assert.IsAssignableFrom<ProductResource>(actionResult.Value);
+            ProductAssertHelper.AssertEquals(productResponse.Product, productResource);
         }
+
+        
+        [Fact]
+        public async Task GetByIdNotFoundTest()
+        {
+            //Arrange
+            var service = new Mock<IProductService>();
+            var productResponse = new ProductResponse("Product not found");
+            service.Setup(e => e.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(productResponse);
+            
+            var controller = new ProductsController(service.Object, _mapper);
+            
+            //Act
+            var result = await controller.GetById(1);
+
+            //Assert
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        
+        [Fact]
+        public async Task PostAsyncOkTest()
+        {
+            //Arrange
+            var service = new Mock<IProductService>();
+            var saveProductResource = ProductGenerator.GetTestSaveProductResource();
+
+            var product = ProductGenerator.GetTestProduct();
+            product.Name = saveProductResource.Name;
+            product.Cost = saveProductResource.Cost;
+
+            var productResponse = new ProductResponse(product);
+            service.Setup(e => e.SaveAsync(It.IsAny<Product>())).ReturnsAsync(productResponse);
+            
+            var controller = new ProductsController(service.Object, _mapper);
+
+            //Act
+            var result = await controller.PostAsync(saveProductResource);
+
+            //Assert
+            var actionResult = Assert.IsType<OkObjectResult>(result);
+            var productResource = Assert.IsAssignableFrom<ProductResource>(actionResult.Value);
+            
+            ProductAssertHelper.AssertEquals(saveProductResource, productResource);
+        }
+        
 
     }
 }
